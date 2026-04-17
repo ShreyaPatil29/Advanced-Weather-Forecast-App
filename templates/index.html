@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Header -->
+<div class="container-fluid">
+  <div class="jumbotron bg-dark" id="jumbotron">
+    <div class="container text">
+      <br>
+      <div class="jumbotext">
+        <h1 class="display-4 text-center lead">5-Day Weather Forecast</h1>
+        <p class="lead text-center">Find Current & Future Weather</p>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>
+
+<!-- Form -->
+<div class="container-fluid">
+  <div class="row justify-content-center form">
+    <form method="POST">
+      <input type="text" class="formtext" name="city" placeholder="City Name" autocomplete="off" autofocus>
+      <button class="btn btn-outline-light">
+        Add City
+      </button>
+    </form>
+  </div>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+  {% for category,message in messages %}
+    {% set message_class="alert-success" %}
+    {% if category=="error" %}
+      {% set message_class="alert-danger" %}
+    {% endif %}
+    <div class="alert {{message_class}}" role="alert">{{message}}</div>
+  {% endfor %}
+{% endif %}
+{% endwith %}
+</div>
+
+<!-- Weather Cards -->
+<div class="container-fluid">
+  <div class="row justify-content-center">
+
+    {% for weather in weather_data %}
+    <div class="card border-dark mb-4 text-white bg-dark m-3" style="width: 72%; padding: 10px;">
+      <div class="card-body text-center">
+
+        <h3 style="font-size:28px; font-weight:bold;">{{ weather.city }}</h3>
+        <hr style="background:white;">
+
+        <!-- Horizontal Forecast -->
+        <div class="d-flex justify-content-center flex-wrap">
+
+          {% for day in weather.forecast %}
+          <div class="text-center m-2 p-2"
+               style="width: 120px; min-height: 165px; background: rgba(255,255,255,0.08); border-radius:14px;">
+
+            <p style="font-size:14px;"><b>{{ day.date[:10] }}</b></p>
+
+            <img src="http://openweathermap.org/img/w/{{ day.icon }}.png" style="width:45px;">
+
+            <p style="font-size:20px;">{{ day.temperature }}°C</p>
+
+            <p style="font-size:12px;"><small>{{ day.description }}</small></p>
+
+          </div>
+          {% endfor %}
+
+        </div>
+
+        <br>
+
+        <a href="{{ url_for('delete_city',name=weather.city) }}">
+          <button type="button" class="btn btn-outline-light">
+            Delete
+          </button>
+        </a>
+
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+
+{% endblock %}

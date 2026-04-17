@@ -1,0 +1,162 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: url("images/img_login.png") center center / cover no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Header */
+.jumbotron{
+    margin: 30px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.jumbotext h1,
+.jumbotext p{
+    color: white;
+    font-weight: bold;
+}
+
+/* Form */
+.form{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn{
+    height: 48px;
+    border-radius: 30px;
+    padding: 0 22px;
+    margin-left: 10px;
+    background: #00bcd4;
+    color: white;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.btn:hover{
+    background: #0097a7;
+    transition: 0.3s;
+}
+
+.btn{
+    height: 45px;
+    border-radius: 10px;
+    padding: 0 20px;
+    margin-left: 10px;
+    background: white;
+    color: #007bff;
+    font-weight: bold;
+    border: none;
+}
+
+.btn:hover{
+    background: #007bff;
+    color: white;
+    transition: 0.3s;
+}
+
+/* Cards */
+.card{
+    margin: 18px;
+    min-width: 320px;
+    border-radius: 22px;
+    border: none;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    color: white;
+    padding: 18px;
+    transition: 0.3s;
+}
+
+.card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.45);
+}
+
+.card h3,
+.card h5,
+.card p{
+    color: white;
+}
+
+.card img{
+    width: 60px;
+    height: 60px;
+}
+
+.text-muted{
+    color: #f1f1f1 !important;
+    text-transform: capitalize;
+}
+
+/* Alerts */
+.alert{
+    width: fit-content;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+/* Delete button */
+.btn1{
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .formtext{
+        width: 180px;
+    }
+
+    .card{
+        min-width: 90%;
+    }
+
+    .jumbotron{
+        margin: 15px;
+    }
+}
+.jumbotext h1{
+    font-size: 48px;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.jumbotext p{
+    font-size: 20px;
+    color: #f5f5f5;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+}
+
+.card img{
+    width: 70px;
+    height: 70px;
+    margin-bottom: 8px;
+}
+
+.card h5, .card h3{
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.card p{
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.alert{
+    border-radius: 14px;
+    font-weight: 600;
+}
